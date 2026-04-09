@@ -1,0 +1,1240 @@
+<!DOCTYPE html><html lang="fr"><head><meta name="x-poe-datastore-behavior" content="local_only"><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MACHABI INVEST — Livret d'Accueil Privilège</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&amp;family=Raleway:wght@200;300;400;500;600&amp;family=Playfair+Display:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root {
+  --navy: #0D1B2A;
+  --navy-light: #132438;
+  --navy-lighter: #1B2D45;
+  --gold: #C6A85C;
+  --gold-light: #D4BC7A;
+  --gold-dim: rgba(198, 168, 92, 0.15);
+  --gold-glow: rgba(198, 168, 92, 0.08);
+  --cream: #F5F0E8;
+  --cream-dim: rgba(245, 240, 232, 0.85);
+  --white: #FFFFFF;
+  --white-dim: rgba(255,255,255,0.6);
+  --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 100%; height: 100%;
+  background: var(--navy);
+  font-family: 'Raleway', sans-serif;
+  color: var(--cream);
+  overflow: hidden;
+}
+
+/* ── Navigation Bar ── */
+.nav-bar {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: 56px;
+  background: rgba(13, 27, 42, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(198, 168, 92, 0.2);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 16px;
+  z-index: 100;
+}
+.nav-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600; font-size: 15px;
+  color: var(--gold);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 45%;
+}
+.nav-pages {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300; font-size: 13px;
+  color: var(--white-dim);
+  letter-spacing: 1px;
+}
+.nav-controls {
+  display: flex; align-items: center; gap: 6px;
+}
+.nav-btn {
+  width: 36px; height: 36px;
+  border: 1px solid rgba(198, 168, 92, 0.3);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--gold);
+  font-size: 13px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: var(--transition);
+}
+.nav-btn:hover { background: var(--gold-dim); border-color: var(--gold); }
+.nav-btn:disabled { opacity: 0.25; cursor: default; }
+.nav-btn:disabled:hover { background: transparent; border-color: rgba(198, 168, 92, 0.3); }
+
+/* ── Page Container ── */
+.pages-wrapper {
+  position: fixed;
+  top: 56px; left: 0; right: 0; bottom: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.page {
+  min-height: calc(100vh - 56px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Gold decorative lines ── */
+.page::before {
+  content: '';
+  position: absolute;
+  top: 20px; left: 50%;
+  transform: translateX(-50%);
+  width: 60px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.page::after {
+  content: '';
+  position: absolute;
+  bottom: 20px; left: 50%;
+  transform: translateX(-50%);
+  width: 60px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.page-inner {
+  max-width: 600px;
+  width: 100%;
+  animation: fadeUp 0.7s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── PAGE 1: Cover ── */
+.cover-page {
+  background: radial-gradient(ellipse at 50% 30%, var(--navy-lighter) 0%, var(--navy) 70%);
+  text-align: center;
+  padding: 40px 28px;
+}
+.cover-page::before { display: none; }
+.cover-logo {
+  width: 140px; height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--gold);
+  box-shadow: 0 0 40px rgba(198, 168, 92, 0.15);
+  margin-bottom: 36px;
+}
+.cover-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 32px;
+  color: var(--gold);
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.cover-subtitle {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--gold-light);
+  letter-spacing: 2px;
+  margin-bottom: 32px;
+}
+.cover-divider {
+  width: 80px; height: 1px;
+  background: var(--gold);
+  margin: 0 auto 28px;
+}
+.cover-detail {
+  font-weight: 300;
+  font-size: 14px;
+  color: var(--cream-dim);
+  line-height: 2;
+  letter-spacing: 0.5px;
+}
+.cover-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--gold);
+  letter-spacing: 4px;
+  margin: 32px 0 28px;
+}
+.cover-contact {
+  font-size: 12px;
+  color: var(--white-dim);
+  line-height: 2.2;
+  letter-spacing: 0.5px;
+}
+.cover-contact i {
+  color: var(--gold);
+  margin-right: 6px;
+  width: 14px;
+  text-align: center;
+}
+.cover-year {
+  margin-top: 28px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  color: rgba(198, 168, 92, 0.5);
+  letter-spacing: 6px;
+  text-transform: uppercase;
+}
+
+/* ── Generic page styles ── */
+.page-label {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(198, 168, 92, 0.5);
+  margin-bottom: 12px;
+}
+.page-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 26px;
+  color: var(--gold);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  text-align: center;
+}
+.page-heading-sub {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--gold-light);
+  letter-spacing: 1px;
+  text-align: center;
+  margin-bottom: 32px;
+}
+.gold-line {
+  width: 50px; height: 1px;
+  background: var(--gold);
+  margin: 0 auto 32px;
+}
+.section-icon {
+  font-size: 28px;
+  color: var(--gold);
+  margin-bottom: 20px;
+  text-align: center;
+  display: block;
+}
+.body-text {
+  font-weight: 300;
+  font-size: 14px;
+  color: var(--cream-dim);
+  line-height: 1.9;
+  letter-spacing: 0.3px;
+}
+.body-text strong {
+  color: var(--gold);
+  font-weight: 500;
+}
+.signature {
+  margin-top: 36px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--gold);
+  text-align: right;
+  letter-spacing: 1px;
+}
+
+/* ── Watermark logo ── */
+.watermark {
+  position: absolute;
+  width: 280px; height: 280px;
+  opacity: 0.03;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* ── Check list ── */
+.check-list {
+  list-style: none;
+  padding: 0;
+}
+.check-list li {
+  font-weight: 300;
+  font-size: 14px;
+  color: var(--cream-dim);
+  line-height: 1.6;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(198, 168, 92, 0.08);
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.check-list li:last-child { border-bottom: none; }
+.check-list li i {
+  color: var(--gold);
+  font-size: 11px;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+/* ── Info cards ── */
+.info-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+.info-card {
+  flex: 1;
+  min-width: 120px;
+  text-align: center;
+  background: rgba(198, 168, 92, 0.06);
+  border: 1px solid rgba(198, 168, 92, 0.12);
+  border-radius: 12px;
+  padding: 20px 12px;
+}
+.info-card .ic-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--white-dim);
+  margin-bottom: 6px;
+}
+.info-card .ic-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* ── Bullet list style ── */
+.bullet-list {
+  list-style: none; padding: 0;
+}
+.bullet-list li {
+  font-weight: 300;
+  font-size: 14px;
+  color: var(--cream-dim);
+  line-height: 1.6;
+  padding: 8px 0;
+  padding-left: 20px;
+  position: relative;
+}
+.bullet-list li::before {
+  content: '';
+  position: absolute; left: 0; top: 15px;
+  width: 6px; height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+}
+
+/* ── Section heading small ── */
+.section-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--gold);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 28px 0 12px;
+}
+
+/* ── Warning box ── */
+.warning-box {
+  background: rgba(198, 168, 92, 0.06);
+  border-left: 2px solid var(--gold);
+  padding: 16px 20px;
+  margin-top: 20px;
+  border-radius: 0 8px 8px 0;
+}
+.warning-box p {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--cream-dim);
+  line-height: 1.7;
+}
+
+/* ── Table (état des lieux) ── */
+.edl-form .form-field {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.edl-form .form-label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--white-dim);
+  min-width: 80px;
+}
+.edl-form .form-line {
+  flex: 1;
+  border-bottom: 1px solid rgba(198, 168, 92, 0.25);
+  height: 1px;
+}
+
+.edl-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+.edl-table th {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+  text-align: left;
+  padding: 10px 8px;
+  border-bottom: 1px solid rgba(198, 168, 92, 0.25);
+}
+.edl-table td {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--cream-dim);
+  padding: 12px 8px;
+  border-bottom: 1px solid rgba(198, 168, 92, 0.08);
+}
+.edl-table td:first-child {
+  color: var(--cream);
+  font-weight: 400;
+}
+.sig-row {
+  display: flex;
+  gap: 24px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+.sig-block {
+  flex: 1;
+  min-width: 140px;
+}
+.sig-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--white-dim);
+  margin-bottom: 24px;
+}
+.sig-line {
+  border-bottom: 1px solid rgba(198, 168, 92, 0.3);
+}
+
+/* ── Equipment cards ── */
+.equip-card {
+  background: rgba(198, 168, 92, 0.04);
+  border: 1px solid rgba(198, 168, 92, 0.1);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 16px;
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+}
+.equip-icon {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--gold-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.equip-icon i {
+  color: var(--gold);
+  font-size: 16px;
+}
+.equip-info h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+.equip-info p {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--cream-dim);
+  line-height: 1.7;
+}
+
+/* ── Emergency card ── */
+.emergency-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(198, 168, 92, 0.06);
+  border: 1px solid rgba(198, 168, 92, 0.12);
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-bottom: 10px;
+}
+.emergency-card i {
+  color: var(--gold);
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.emergency-card .em-label {
+  font-size: 12px;
+  color: var(--white-dim);
+  letter-spacing: 1px;
+}
+.emergency-card .em-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* ── Discover cards ── */
+.discover-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 4px;
+}
+.discover-card {
+  background: rgba(198, 168, 92, 0.05);
+  border: 1px solid rgba(198, 168, 92, 0.1);
+  border-radius: 12px;
+  padding: 20px 14px;
+  text-align: center;
+  transition: var(--transition);
+}
+.discover-card:hover {
+  background: rgba(198, 168, 92, 0.1);
+  transform: translateY(-2px);
+}
+.discover-card .dc-emoji {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+.discover-card .dc-name {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--cream);
+  line-height: 1.4;
+}
+
+/* ── Page number ── */
+.page-num {
+  position: absolute;
+  bottom: 32px; right: 28px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 12px;
+  color: rgba(198, 168, 92, 0.35);
+  letter-spacing: 2px;
+}
+
+/* ── Scroll indicator ── */
+.scroll-hint {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  z-index: 99;
+  animation: pulse 2s ease infinite;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+.scroll-hint.hidden { opacity: 0; }
+.scroll-hint span {
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(198, 168, 92, 0.4);
+}
+.scroll-hint i {
+  color: rgba(198, 168, 92, 0.4);
+  font-size: 14px;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; transform: translateX(-50%) translateY(0); }
+  50% { opacity: 1; transform: translateX(-50%) translateY(4px); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .page { padding: 48px 20px; }
+  .cover-title { font-size: 24px; letter-spacing: 5px; }
+  .cover-subtitle { font-size: 14px; }
+  .cover-logo { width: 110px; height: 110px; }
+  .page-heading { font-size: 22px; letter-spacing: 2px; }
+  .discover-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .equip-card { flex-direction: column; align-items: center; text-align: center; }
+  .info-card { min-width: 100px; }
+  .nav-brand { font-size: 12px; letter-spacing: 2px; }
+}
+
+@media (min-width: 768px) {
+  .page { padding: 80px 40px; }
+  .cover-title { font-size: 38px; }
+  .page-heading { font-size: 30px; }
+  .cover-logo { width: 160px; height: 160px; }
+}
+
+/* ── Print-friendly ── */
+@media print {
+  html, body {
+    height: auto !important;
+    overflow: visible !important;
+    background: var(--navy) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  .nav-bar,
+  .scroll-hint {
+    display: none !important;
+  }
+
+  .pages-wrapper {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    overflow: visible !important;
+    height: auto !important;
+  }
+
+  .page {
+    min-height: 100vh;
+    page-break-after: always;
+    page-break-inside: avoid;
+    break-after: page;
+    break-inside: avoid;
+    position: relative;
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .page:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+
+  .page-inner {
+    animation: none !important;
+  }
+
+  .watermark {
+    opacity: 0.03 !important;
+  }
+
+  .cover-page {
+    background: radial-gradient(ellipse at 50% 30%, var(--navy-lighter) 0%, var(--navy) 70%) !important;
+  }
+
+  .equip-card,
+  .emergency-card,
+  .info-card,
+  .discover-card,
+  .warning-box {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav-bar">
+  <div class="nav-brand">Machabi Invest</div>
+  <div class="nav-pages" id="pageIndicator">1 / 15</div>
+  <div class="nav-controls">
+    <button class="nav-btn" id="btnPrev" disabled="" aria-label="Page précédente"><i class="fas fa-chevron-up"></i></button>
+    <button class="nav-btn" id="btnNext" aria-label="Page suivante"><i class="fas fa-chevron-down"></i></button>
+  </div>
+</nav>
+
+<!-- Scroll hint -->
+<div class="scroll-hint" id="scrollHint">
+  <span>Défiler</span>
+  <i class="fas fa-chevron-down"></i>
+</div>
+
+<main class="pages-wrapper" id="pagesWrapper">
+
+  <!-- ════════════════════════════════════════ PAGE 1 — COVER ════════════════════════════════════════ -->
+  <section class="page cover-page" data-page="1">
+    <div class="page-inner" style="display:flex;flex-direction:column;align-items:center;">
+      <img src="https://pfst.cf2.poecdn.net/base/image/e709ee74add5f882b006a60ed9a2cdff777769d0e47493077b5c9277917997c0?w=1600&amp;h=1600" alt="MACHABI INVEST Logo" class="cover-logo">
+      <div class="cover-title">MACHABI INVEST</div>
+      <div class="cover-subtitle">Livret d'Accueil Privilège</div>
+      <div class="cover-divider"></div>
+      <div class="cover-detail">
+        Résidence Exclusive — 2&nbsp;Chambres &amp; Salon<br>
+        Akpakpa Sénandé — Cotonou
+      </div>
+      <div class="cover-tagline">Élégance &nbsp;•&nbsp; Confort &nbsp;•&nbsp; Excellence</div>
+      <div class="cover-contact">
+        <i class="fas fa-phone-alt"></i> +229 01 97 39 34 32<br>
+        <i class="fas fa-envelope"></i> adoumboumariam@gmail.com
+      </div>
+      <div class="cover-year">Édition 2026</div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════ PAGE 2 — MESSAGE ════════════════════════════════════════ -->
+  <section class="page" data-page="2">
+    <img src="https://pfst.cf2.poecdn.net/base/image/e709ee74add5f882b006a60ed9a2cdff777769d0e47493077b5c9277917997c0?w=1600&amp;h=1600" alt="" class="watermark">
+    <div class="page-inner">
+      <div class="page-label" style="text-align:center;">Message du Fondateur</div>
+      <h2 class="page-heading">Bienvenue dans votre<br>résidence d'exception</h2>
+      <div class="gold-line"></div>
+      <p class="body-text">
+        Cher(e) Client(e),
+      </p>
+      <br>
+      <p class="body-text">
+        Nous sommes honorés de vous accueillir dans l'une de nos résidences soigneusement sélectionnées et aménagées pour offrir une expérience alliant confort, sécurité et raffinement.
+      </p>
+      <br>
+      <p class="body-text">
+        Chez <strong>MACHABI INVEST</strong>, chaque détail est pensé pour garantir un séjour digne des standards hôteliers haut de gamme.
+      </p>
+      <br>
+      <p class="body-text">
+        Notre équipe reste disponible à tout moment pour vous assister. Nous vous souhaitons un séjour remarquable à Cotonou.
+      </p>
+      <div class="signature">La Direction</div>
+    </div>
+    <span class="page-num">02</span>
+  </section>
+
+  <!-- ════════════════════════════════════════ PAGE 3 — EXPÉRIENCE ════════════════════════════════════════ -->
+  <section class="page" data-page="3">
+    <div class="page-inner">
+      <i class="fas fa-gem section-icon"></i>
+      <div class="page-label" style="text-align:center;">L'Expérience Machabi Invest</div>
+      <h2 class="page-heading">Votre confort,<br>notre engagement</h2>
+      <div class="gold-line"></div>
+      <ul class="check-list">
+        <li><i class="fas fa-check"></i>Appartement entièrement équipé</li>
+        <li><i class="fas fa-check"></i>Literie de qualité supérieure</li>
+        <li><i class="fas fa-check"></i>Wi-Fi fibre haut débit</li>
+        <li><i class="fas fa-check"></i>Sécurité et discrétion</li>
+        <li><i class="fas fa-check"></i>Assistance personnalisée</li>
+      </ul>
+      <div class="info-row">
+        <div class="info-card">
+          <div class="ic-label">Capacité</div>
+          <div class="ic-value">4</div>
+          <div class="ic-label" style="margin-top:2px;">personnes</div>
+        </div>
+        <div class="info-card">
+          <div class="ic-label">Tarif</div>
+          <div class="ic-value">35 000</div>
+          <div class="ic-label" style="margin-top:2px;">FCFA / nuit</div>
+        </div>
+        <div class="info-card">
+          <div class="ic-label">Check-in</div>
+          <div class="ic-value">14h</div>
+          <div class="ic-label" style="margin-top:2px;">Check-out 12h</div>
+        </div>
+      </div>
+    </div>
+    <span class="page-num">03</span>
+  </section>
+
+  <!-- ════════════════════════════════════════ PAGE 4 — CONDITIONS ════════════════════════════════════════ -->
+  <section class="page" data-page="4">
+    <div class="page-inner">
+      <i class="fas fa-file-contract section-icon"></i>
+      <div class="page-label" style="text-align:center;">Informations Essentielles</div>
+      <h2 class="page-heading">Conditions de séjour</h2>
+      <div class="gold-line"></div>
+      <div class="section-sub">Caution de garantie</div>
+      <p class="body-text">
+        Une caution équivalente à <strong>20 % du montant total du séjour</strong> est requise à l'arrivée.
+      </p>
+      <div class="section-sub" style="margin-top:24px;">Modalités de paiement</div>
+      <ul class="check-list">
+        <li><i class="fas fa-credit-card"></i>Préautorisation bancaire</li>
+        <li><i class="fas fa-exchange-alt"></i>Virement</li>
+        <li><i class="fas fa-mobile-alt"></i>Mobile Money</li>
+        <li><i class="fas fa-money-bill-wave"></i>Espèces</li>
+      </ul>
+      <div class="warning-box">
+        <p>Restitution sous 7 jours après validation de l'état des lieux. Des retenues peuvent s'appliquer en cas de dégradations, nettoyage exceptionnel ou non‑respect du règlement intérieur.</p>
+      </div>
+    </div>
+    <span class="page-num">04</span>
+  </section>
+
+  <!-- ════════════════════════════════════════ PAGE 5 — RÈGLEMENT ════════════════════════════════════════ -->
+  <section class="page" data-page="5">
+    <div class="page-inner">
+      <i class="fas fa-shield-alt section-icon"></i>
+      <div class="page-label" style="text-align:center;">Charte de Sérénité</div>
+      <h2 class="page-heading">Règlement intérieur</h2>
+      <div class="gold-line"></div>
+      <p class="body-text" style="text-align:center;margin-bottom:24px;">
+        Afin de préserver la qualité et le standing de la résidence&nbsp;:
+      </p>
+      <ul class="check-list">
+        <li><i class="fas fa-smoking-ban"></i>Logement strictement non-fumeur</li>
+        <li><i class="fas fa-volume-mute"></i>Événements et fêtes interdits</li>
+        <li><i class="fas fa-moon"></i>Respect du voisinage (silence après 22h)</li>
+        <li><i class="fas fa-users"></i>Capacité maximale : 4 occupants</li>
+        <li><i class="fas fa-paw"></i>Animaux non autorisés</li>
+      </ul>
+      <div class="warning-box" style="margin-top:28px;">
+        <p>Tout comportement inapproprié pourra entraîner une résiliation immédiate du séjour sans remboursement.</p>
+      </div>
+    </div>
+    <span class="page-num">05</span>
+  </section>
+
+  <!-- ════════════════════════════════════════ PAGE 6 — ARRIVÉE ════════════════════════════════════════ -->
+  <section class="page" data-page="6">
+    <div class="page-inner">
+      <i class="fas fa-door-open section-icon"></i>
+      <div class="page-label" style="text-align:center;">Arrivée &amp; Accueil</div>
+      <h2 class="page-heading">Procédure d'arrivée</h2>
+      <div class="gold-line"></div>
+      <div class="info-row" style="margin-bottom:28px;">
+        <div class="info-card" style="flex:none;width:100%;">
+          <div class="ic-label">Heure d'arrivée</div>
+          <div class="ic-value">14h00</div>
+        </div>
+      </div>
+      <div class="section-sub">À présenter</div>
+      <ul class="check-list">
+        <li><i class="fas fa-id-card"></i>Pièce d'identité valide</li>
+        <li><i class="fas fa-calendar-check"></i>Confirmation de réservation</li>
+      </ul>
+      <br>
+      <p class="body-text">
+        Remise des clés personnalisée ou procédure sécurisée communiquée par WhatsApp.
+      </p>
+      <br>
+      <p class="body-text" style="font-style:italic;color:var(--gold-light);">
+        Check-in tardif possible sur demande préalable.
+      </p>
+    </div>
+    <span class="page-num">06</span>
+  </section>
+
+  <!-- ════════════════════════════════════════ PAGE 7 — DÉPART ════════════════════════════════════════ -->
+  <section class="page" data-page="7">
+    <div class="page-inner">
+      <i class="fas fa-sign-out-alt section-icon"></i>
+      <div class="page-label" style="text-align:center;">Départ &amp; Restitution</div>
+      <h2 class="page-heading">Procédure de départ</h2>
+      <div class="gold-line"></div>
+      <div class="info-row" style="margin-bottom:28px;">
+        <div class="info-card" style="flex:none;width:100%;">
+          <div class="ic-label">Heure limite</div>
+          <div class="ic-value">12h00</div>
+        </div>
+      </div>
+      <p class="body-text" style="margin-bottom:20px;">Nous vous remercions de :</p>
+      <ul class="check-list">
+        <li><i class="fas fa-power-off"></i>Éteindre tous les appareils</li>
+        <li><i class="fas fa-lock"></i>Fermer portes et fenêtres</li>
+        <li><i class="fas fa-key"></i>Déposer les clés selon les instructions reçues</li>
+      </ul>
+      <div class="warning-box" style="margin-top:28px;">
+        <p>L'état des lieux de sortie conditionne la restitution de la caution.</p>
+      </div>
+    </div>
+    <span class="page-num">07</span>
+  </section>
+
+  <!-- ════════════════════════════════════════ PAGE 8 — ÉTAT DES LIEUX ════════════════════════════════════════ -->
+  <section class="page" data-page="8">
+    <div class="page-inner">
+      <i class="fas fa-clipboard-list section-icon"></i>
+      <div class="page-label" style="text-align:center;">État des Lieux Officiel</div>
+      <h2 class="page-heading">Fiche de contrôle</h2>
+      <div class="gold-line"></div>
+      <div class="edl-form">
+        <div class="form-field">
+          <span class="form-label">Date</span>
+          <span class="form-line"></span>
+        </div>
+        <div class="form-field">
+          <span class="form-label">Client</span>
+          <span class="form-line"></span>
+        </div>
+      </div>
+      <table class="edl-table">
+        <thead>
+          <tr>
+            <th>Espace</th>
+            <th>État</th>
+            <th>Observations</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Salon</td><td>Excellent / Bon / Moyen</td><td></td></tr>
+          <tr><td>Chambre 1</td><td>Excellent / Bon / Moyen</td><td></td></tr>
+          <tr><td>Chambre 2</td><td>Excellent / Bon / Moyen</td><td></td></tr>
+          <tr><td>Cuisine</td><td>Excellent / Bon / Moyen</td><td></td></tr>
+          <tr><td>Salle de bain</td><td>Excellent / Bon / Moyen</td><td></td></tr>
+        </tbody>
+      </table>
+      <div class="sig-row">
+        <div class="sig-block">
+          <div class="sig-label">Signature Client</div>
+          <div class="sig-line"></div>
+        </div>
+        <div class="sig-block">
+          <div class="sig-label">Signature Représentant</div>
+          <div class="sig-line"></div>
+        </div>
+      </div>
+      <p class="body-text" style="margin-top:24px;font-size:12px;font-style:italic;color:var(--white-dim);">
+        Toute réclamation doit être formulée dans les 24h suivant l'arrivée.
+      </p>
+    </div>
+    <span class="page-num">08</span>
+  </section>
+
+  <!-- ════════════════════════════════════════ PAGE 9 — ÉQUIPEMENTS 1 ════════════════════════════════════════ -->
+  <section class="page" data-page="9">
+    <div class="page-inner">
+      <i class="fas fa-concierge-bell section-icon"></i>
+      <div class="page-label" style="text-align:center;">Équipements Premium</div>
+      <h2 class="page-heading">Cuisine</h2>
+      <div class="gold-line"></div>
+      <div class="equip-card">
+        <div class="equip-icon"><i class="fas fa-fire"></i></div>
+        <div class="equip-info">
+          <h4>Plaque de cuisson POLYSTAR</h4>
+          <p>Cuisine moderne équipée d'une plaque gaz performante. Veillez à fermer l'arrivée de gaz après utilisation.</p>
+        </div>
+      </div>
+      <div class="equip-card">
+        <div class="equip-icon"><i class="fas fa-snowflake"></i></div>
+        <div class="equip-info">
+          <h4>Réfrigérateur HISENSE</h4>
+          <p>Température recommandée : niveau moyen. Merci de ne pas surcharger l'appareil.</p>
+        </div>
+      </div>
+    </div>
+    <span class="page-num">09</span>
+  </section>
+
+  <!-- ════════════════════════════════════════ PAGE 10 — ÉQUIPEMENTS 2 ════════════════════════════════════════ -->
+  <section class="page" data-page="10">
+    <div class="page-inner">
+      <i class="fas fa-microchip section-icon"></i>
+      <div class="page-label" style="text-align:center;">Confort &amp; Technologie</div>
+      <h2 class="page-heading">Appareils</h2>
+      <div class="gold-line"></div>
+      <div class="equip-card">
+        <div class="equip-icon"><i class="fas fa-tshirt"></i></div>
+        <div class="equip-info">
+          <h4>Machine à laver HISENSE Steam</h4>
+          <p>Technologie vapeur pour hygiène optimale. Ne pas dépasser la capacité indiquée.</p>
+        </div>
+      </div>
+      <div class="equip-card">
+        <div class="equip-icon"><i class="fas fa-radiation"></i></div>
+        <div class="equip-info">
+          <h4>Micro-ondes Panasonic Inverter</h4>
+          <p>Chauffage rapide et homogène. Ne jamais utiliser à vide.</p>
+        </div>
+      </div>
+      <div class="equip-card">
+        <div class="equip-icon"><i class="fas fa-mug-hot"></i></div>
+        <div class="equip-info">
+          <h4>Cafetière</h4>
+          <p>Idéale pour vos pauses café. Nettoyer après chaque utilisation.</p>
+        </div>
+      </div>
+    </div>
+    <span class="page-num">10</span>
+  </section>
+
+  <!-- ════════════════════════════════════════ PAGE 11 — WI-FI ════════════════════════════════════════ -->
+  <section class="page" data-page="11">
+    <div class="page-inner" style="text-align:center;">
+      <i class="fas fa-wifi section-icon" style="font-size:40px;margin-bottom:28px;"></i>
+      <div class="page-label">Connectivité</div>
+      <h2 class="page-heading">Wi-Fi Fibre<br>Haut Débit</h2>
+      <div class="gold-line"></div>
+      <p class="body-text" style="text-align:center;">
+        Les informations de connexion sont affichées dans l'appartement.
+      </p>
+      <br><br>
+      <div class="emergency-card" style="justify-content:center;">
+        <i class="fas fa-headset"></i>
+        <div>
+          <div class="em-label">Assistance technique</div>
+          <div class="em-number">+229 01 97 39 34 32</div>
+        </div>
+      </div>
+    </div>
+    <span class="page-num">11</span>
+  </section>
+
+  <!-- ════════════════════════════════════════ PAGE 12 — SÉCURITÉ ════════════════════════════════════════ -->
+  <section class="page" data-page="12">
+    <div class="page-inner">
+      <i class="fas fa-phone-alt section-icon"></i>
+      <div class="page-label" style="text-align:center;">Sécurité</div>
+      <h2 class="page-heading">Numéros d'urgence</h2>
+      <div class="gold-line"></div>
+      <div class="emergency-card">
+        <i class="fas fa-shield-alt"></i>
+        <div>
+          <div class="em-label">Police</div>
+          <div class="em-number">117</div>
+        </div>
+      </div>
+      <div class="emergency-card">
+        <i class="fas fa-fire-extinguisher"></i>
+        <div>
+          <div class="em-label">Pompiers</div>
+          <div class="em-number">118</div>
+        </div>
+      </div>
+      <div class="emergency-card">
+        <i class="fas fa-ambulance"></i>
+        <div>
+          <div class="em-label">Service médical</div>
+          <div class="em-number" style="font-size:16px;color:var(--white-dim);">À compléter</div>
+        </div>
+      </div>
+      <div class="emergency-card" style="border-color:var(--gold);background:rgba(198,168,92,0.1);">
+        <i class="fas fa-concierge-bell"></i>
+        <div>
+          <div class="em-label">MACHABI INVEST</div>
+          <div class="em-number">01 97 39 34 32</div>
+        </div>
+      </div>
+    </div>
+    <span class="page-num">12</span>
+  </section>
+
+  <!-- ════════════════════════════════════════ PAGE 13 — CONCIERGERIE ════════════════════════════════════════ -->
+  <section class="page" data-page="13">
+    <div class="page-inner">
+      <i class="fas fa-star section-icon"></i>
+      <div class="page-label" style="text-align:center;">Conciergerie Privilège</div>
+      <h2 class="page-heading">Services personnalisés</h2>
+      <div class="gold-line"></div>
+      <ul class="check-list">
+        <li><i class="fas fa-plane-arrival"></i>Transfert aéroport</li>
+        <li><i class="fas fa-broom"></i>Service ménage premium</li>
+        <li><i class="fas fa-tshirt"></i>Blanchisserie</li>
+        <li><i class="fas fa-shopping-bag"></i>Courses avant arrivée</li>
+        <li><i class="fas fa-car"></i>Location de véhicule</li>
+        <li><i class="fas fa-map-marked-alt"></i>Organisation d'excursions</li>
+      </ul>
+      <div class="warning-box" style="margin-top:28px;border-left-color:var(--gold);">
+        <p style="text-align:center;font-style:italic;">Réservation anticipée recommandée.</p>
+      </div>
+    </div>
+    <span class="page-num">13</span>
+  </section>
+
+  <!-- ════════════════════════════════════════ PAGE 14 — DÉCOUVRIR ════════════════════════════════════════ -->
+  <section class="page" data-page="14">
+    <div class="page-inner">
+      <i class="fas fa-compass section-icon"></i>
+      <div class="page-label" style="text-align:center;">Découvrir Cotonou</div>
+      <h2 class="page-heading">Nos recommandations<br>exclusives</h2>
+      <div class="gold-line"></div>
+      <div class="discover-grid">
+        <div class="discover-card">
+          <div class="dc-emoji">🏖️</div>
+          <div class="dc-name">Plage de Fidjrossè</div>
+        </div>
+        <div class="discover-card">
+          <div class="dc-emoji">🛍️</div>
+          <div class="dc-name">Marché Dantokpa</div>
+        </div>
+        <div class="discover-card">
+          <div class="dc-emoji">🌊</div>
+          <div class="dc-name">Route des Pêches</div>
+        </div>
+        <div class="discover-card">
+          <div class="dc-emoji">🎨</div>
+          <div class="dc-name">Fondation Zinsou</div>
+        </div>
+        <div class="discover-card">
+          <div class="dc-emoji">🚤</div>
+          <div class="dc-name">Ganvié</div>
+        </div>
+        <div class="discover-card">
+          <div class="dc-emoji">🍽️</div>
+          <div class="dc-name">Restaurants gastronomiques</div>
+        </div>
+      </div>
+    </div>
+    <span class="page-num">14</span>
+  </section>
+
+  <!-- ════════════════════════════════════════ PAGE 15 — MENTIONS ════════════════════════════════════════ -->
+  <section class="page" data-page="15">
+    <img src="https://pfst.cf2.poecdn.net/base/image/e709ee74add5f882b006a60ed9a2cdff777769d0e47493077b5c9277917997c0?w=1600&amp;h=1600" alt="" class="watermark">
+    <div class="page-inner" style="text-align:center;">
+      <i class="fas fa-balance-scale section-icon"></i>
+      <div class="page-label">Mentions &amp; Responsabilité</div>
+      <h2 class="page-heading">Clause légale</h2>
+      <div class="gold-line"></div>
+      <p class="body-text" style="text-align:center;">
+        Le locataire est responsable des dommages causés durant son séjour.
+      </p>
+      <br>
+      <p class="body-text" style="text-align:center;">
+        Ce livret est fourni à titre informatif.<br>
+        Pour validation juridique complète, consulter un conseiller juridique local.
+      </p>
+      <br><br>
+      <div class="cover-divider"></div>
+      <br>
+      <img src="https://pfst.cf2.poecdn.net/base/image/e709ee74add5f882b006a60ed9a2cdff777769d0e47493077b5c9277917997c0?w=1600&amp;h=1600" alt="Logo MACHABI INVEST" style="width:70px;height:70px;border-radius:50%;object-fit:cover;border:1px solid var(--gold);opacity:0.7;">
+      <br><br>
+      <div class="cover-year">MACHABI INVEST — 2026</div>
+      <p class="body-text" style="margin-top:16px;font-size:12px;text-align:center;color:var(--white-dim);">
+        Tous droits réservés
+      </p>
+    </div>
+    <span class="page-num">15</span>
+  </section>
+
+</main>
+
+<script>
+  /* ── Page tracking & navigation ── */
+  const wrapper = document.getElementById('pagesWrapper');
+  const pages = document.querySelectorAll('.page');
+  const indicator = document.getElementById('pageIndicator');
+  const btnPrev = document.getElementById('btnPrev');
+  const btnNext = document.getElementById('btnNext');
+  const scrollHint = document.getElementById('scrollHint');
+  const totalPages = pages.length;
+
+  function getCurrentPage() {
+    var scrollTop = wrapper.scrollTop;
+    var wrapperH = wrapper.clientHeight;
+    var best = 0;
+    var bestVisible = -1;
+    for (var i = 0; i < pages.length; i++) {
+      var rect = pages[i].getBoundingClientRect();
+      var pageTop = pages[i].offsetTop - wrapper.offsetTop;
+      var pageBottom = pageTop + pages[i].offsetHeight;
+      var visibleTop = Math.max(scrollTop, pageTop);
+      var visibleBottom = Math.min(scrollTop + wrapperH, pageBottom);
+      var visible = Math.max(0, visibleBottom - visibleTop);
+      if (visible > bestVisible) {
+        bestVisible = visible;
+        best = i;
+      }
+    }
+    return best;
+  }
+
+  function updateNav() {
+    var idx = getCurrentPage();
+    var num = idx + 1;
+    indicator.textContent = num + ' / ' + totalPages;
+    btnPrev.disabled = idx === 0;
+    btnNext.disabled = idx === totalPages - 1;
+    if (idx > 0) {
+      scrollHint.classList.add('hidden');
+    }
+  }
+
+  wrapper.addEventListener('scroll', updateNav);
+
+  btnPrev.addEventListener('click', function() {
+    var idx = getCurrentPage();
+    if (idx > 0) {
+      pages[idx - 1].scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+
+  btnNext.addEventListener('click', function() {
+    var idx = getCurrentPage();
+    if (idx < totalPages - 1) {
+      pages[idx + 1].scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+
+  /* ── Intersection observer for animations ── */
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var inner = entry.target.querySelector('.page-inner');
+        if (inner) {
+          inner.style.animation = 'none';
+          void inner.offsetHeight;
+          inner.style.animation = 'fadeUp 0.7s ease both';
+        }
+      }
+    });
+  }, { root: wrapper, threshold: 0.3 });
+
+  pages.forEach(function(page) {
+    observer.observe(page);
+  });
+
+  /* ── Hide scroll hint after first scroll ── */
+  var scrolled = false;
+  wrapper.addEventListener('scroll', function() {
+    if (!scrolled && wrapper.scrollTop > 50) {
+      scrolled = true;
+      scrollHint.classList.add('hidden');
+    }
+  });
+
+  /* ── Dark mode detection (already dark by default) ── */
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    document.documentElement.classList.add('dark');
+  }
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(event) {
+    if (event.matches) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  });
+
+  updateNav();
+</script>
+
+
+</body></html>
